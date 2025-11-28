@@ -1,122 +1,93 @@
-# 🤖 AI 模型對戰平台
+🤖 AI 模型對戰平台
+基於 lmarena.ai 概念的多功能中文 AI 對戰平台。
+文本、圖片、影片、音樂一站式比較，支援 Pollinations.ai、開源 Suno API 等最新模型，且支援多帳戶管理與免費配額查詢。
 
-基於 lmarena.ai 概念打造的中文 AI 模型比較與投票平台。
+✨ 主要功能
+🏆 AI對戰模式
+多文字生成模型（GPT-4、Claude、Gemini、Llama、Mistral…）
 
-## ✨ 功能特色
+多圖片生成模型（Flux、Flux Pro、Google Gemini Flash…）
 
-### 📝 文字生成對戰
-- 支援多種主流文字生成模型（GPT-4, Claude, Gemini, Llama 等）
-- 並排比較兩個模型的回答
-- 即時投票與排行榜統計
-- 可調整溫度、最大字數等參數
+多影片生成入口（Runway、Pika Labs、Luma、Stable Video…）
 
-### 🎨 圖片生成對戰
-- 支援多種圖片生成模型（DALL-E 3, Stable Diffusion XL, Flux Pro, Pollinations 等）
-- 並排展示兩個模型生成的圖片
-- 視覺化比較與投票
-- 支援多種圖片尺寸與品質設定
+多帳戶音樂生成（Suno API，支援自定歌詞、歌手、混音Remix）
 
-### 🎬 影片生成對戰
-- 支援主流影片生成模型（Runway, Pika Labs, Stable Video, Luma AI）
-- 可設定影片長度與影格率
-- 開發中功能
+排行榜投票計分機制
 
-### 📊 排行榜系統
-- 即時統計模型得票數
-- 顯示對戰歷史記錄
-- 視覺化投票進度
+🎨 圖片對戰
+集成 Pollinations.ai 免費 API
 
-## 🚀 快速開始
+一鍵盲測多張圖生成、支持多模型切換
 
-### 安裝依賴
-```bash
-pip install -r requirements.txt
-```
+支持 1~6 張圖片並排比較，高清大圖瀏覽
 
-### 運行應用
-```bash
-streamlit run app.py
-```
+🎬 影片入口
+支援常見多模影片AI模型（Runway、Pika Labs、Stable Video、Luma…）
 
-應用將在 `http://localhost:8501` 啟動。
+提供自動化生成接口拓展（需API Key或官方帳號）
 
-## 🔧 配置說明
+🎵 音樂生成（Suno API）
+可輸入自訂歌詞、選歌手風格、Remix編曲
 
-### API 金鑰設定
-在側邊欄的「API 金鑰設定」區域輸入您的 API 金鑰：
-- OpenAI API Key（用於 GPT 模型和 DALL-E）
-- Anthropic API Key（用於 Claude 模型）
-- Google API Key（用於 Gemini 模型）
+支援多帳戶管理，前端localStorage保存，後端動態切換cookie
 
-⚠️ **注意**: API 金鑰僅在當前會話中使用，不會被儲存。
+顯示每日免費額度餘額（50首/帳號）
 
-### 模型配置
-應用內建多種模型配置，您可以在 `app.py` 中修改：
+一鍵播放、下載mp3
 
-```python
-TEXT_MODELS = {...}  # 文字生成模型
-IMAGE_MODELS = {...}  # 圖片生成模型
-VIDEO_MODELS = {...}  # 影片生成模型
-```
+👥 帳號管理與免費額度
+支援前端多帳戶管理、切換、刪除
 
-## 📦 部署
+免費配額查詢與提醒，團隊協作可集成後端安全分攤
 
-### Streamlit Cloud
-1. Fork 此倉庫
-2. 連接到 [Streamlit Cloud](https://streamlit.io/cloud)
-3. 部署 `app.py`
+🚀 快速開始
+安裝依賴
+bash
+npm install
+本地運行
+bash
+npm run dev
+前往 http://localhost:3000 查看平台。
 
-### Docker
-```bash
-docker build -t lmarena-app .
-docker run -p 8501:8501 lmarena-app
-```
+部署到 Vercel
+一鍵部署：Vercel Deploy Button
 
-### 其他平台
-- Hugging Face Spaces
-- Railway
-- Vercel（需要適配器）
-- Koyeb
+GitHub連接 Vercel 項目即可自動部署
 
-## 🛠️ 技術架構
+Suno API 配置
+按照 Suno-API 開源教學 取得帳號cookie
 
-- **前端框架**: Streamlit
-- **程式語言**: Python 3.8+
-- **API 整合**: Requests
-- **狀態管理**: Streamlit Session State
+在前端「Suno帳戶管理」加入帳號名稱及cookie，立即享受免費生成
 
-## 📝 使用說明
+📝 功能說明
+支援多模型對戰/投票/排行榜
 
-1. **選擇功能模式**: 在側邊欄選擇文字、圖片或影片生成
-2. **選擇對戰模型**: 從下拉選單中選擇兩個 AI 模型
-3. **輸入提示詞**: 描述您想要的內容
-4. **生成內容**: 點擊生成按鈕
-5. **比較結果**: 並排查看兩個模型的輸出
-6. **投票**: 選擇您認為更好的模型
-7. **查看排行榜**: 在排行榜頁面查看統計結果
+盲測UI，公平比較各模型結果
 
-## 🎯 開發計劃
+多張圖片生成與比較，支援多種圖片AI模型
 
-- [ ] 整合真實 API（OpenAI, Anthropic, Google 等）
-- [ ] 實作影片生成功能
-- [ ] 添加用戶認證系統
-- [ ] 持久化投票數據（數據庫）
-- [ ] Elo 評分系統
-- [ ] 更多模型支援
-- [ ] 匯出對戰結果
-- [ ] 多語言支援
+團隊、個人音樂帳戶自由切換與配額管理
 
-## 🤝 貢獻
+影片/音樂自定生成，一鍵下載/分享
 
-歡迎提交 Issue 和 Pull Request！
+完整繁體中文介面
 
-## 📄 授權
+🛠️ 技術架構
+Next.js + Tailwind CSS 前端框架
 
-MIT License
+Pollinations.ai、suno-api 等免費AI模型API
 
-## 🙏 致謝
+LocalStorage帳戶管理、驗證與分帳
 
-靈感來自 [lmarena.ai](https://lmarena.ai) - 開放的 AI 模型評估平台。
+Vercel一鍵部署架構
+
+🤝 貢獻
+歡迎協作、提交Issues、PR。
+如需擴展更多AI模型或特別企業需求，請隨時聯繫。
+
+🙏 聲明
+本專案只調用公開API，請尊重各平台開發者之版權使用和商用條款。
+Suno API及第三方帳戶cookie建議個人使用或團隊分帳，請勿公開分享，保障配額安全
 
 ---
 
